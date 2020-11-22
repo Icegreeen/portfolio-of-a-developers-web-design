@@ -1,13 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Josefin+Sans:ital,wght@0,300;0,400;1,500;1,700&display=swap'); /* font-family: 'Baloo 2', cursive;      font-family: 'Josefin Sans', sans-serif;    */
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap'); /*Fonte 1*/
 
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap'); /*Font de botoes*/
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"); /*import dos icones*/
 
 * {
     margin: 0;
     padding: 0;
+    list-style: none; /*isso aqui retira as bolinhas list*/
+    text-decoration: none; /*tirar o sumblinhado dos links*/
 } 
+
+:root{
+    --font-primary: 'Goldman', cursive;
+    --font-secundary: 'Josefin Sans', sans-serif; 
+    --font-action: 'Mulish', sans-serif;
+}
+
+.hamburguer {
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+}
+
+
+.show-menu .hamburguer{ /*Posicionamento do locamento do click */
+    right: 11rem; 
+}
+
+.line {
+    width: 100%;
+    height: .1rem;
+    background-color: #fff;
+    box-shadow: 0.1rem 0.1rem 1px #000;
+    transition: transform 1s;
+}
+
+/*------------------------- Evento da mudança nas linhas no click--------------------*/
+
+.show-menu #line1{
+    transform: rotate(45deg) translate(.2rem, .3rem);
+
+}
+
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.2rem, -.5rem);
+
+}
+
+.hamburguer span{ /*- caixa de aviso para fechar*/
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2f363d;
+    color: #ffffff;
+    font-family: var(--font-action);
+    opacity: 0; /*Opacidade padrao*/
+}
+
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid #2f363d;
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem
+}
+
+.show-menu .hamburguer:hover span {
+    opacity: 1; /*Opacidade após o evento Over*/
+
+
+}
+
+
+/*----------------------------- -------------------------------------*/
 
 header {
     width: 100%;
@@ -42,13 +128,13 @@ header {
 
 .banner {
     position: absolute; /* Para a posição do banner ser absoluto ele tem que estar dentro de um elemento com o posicionamento relativo*/
-    top: 30%;
-    left: 15%;
+    top: 35%; /*posicao do baner - altura*/
+    left: 12%; /*posicao do baner - largura*/
 }
 .banner h1 {
     color: #ffffff;
-    font-size: 2.0rem; /*tamanho da fonte*/
-    font-family: "Volkhov", serif;
+    font-size: 2.7rem; /*tamanho da fonte*/
+    font-family: var(--font-primary);
     font-weight: 200; /* deminuir o peso*/
     text-shadow: .3rem .4rem 2px rgba(0,0,0,4); /* sombra do texto*/
     line-height: 3.5rem; /* espaçamento da linha*/
@@ -58,24 +144,24 @@ header {
 }
 
 .banner p{
-    font-family: 'Great vibes', cursive;
+    font-family: var(--font-secundary); 
     color: #fff;
-    font-size: 2.0rem;
+    font-size: 1.5rem;
     text-shadow: .2rem .2rem 2px rgba(0,0,0,4);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     opacity: 0;
     animation: moveBanner 1s 0.7s forwards;
 }
 
 .banner button{
-    font-family: "Volkhov", serif;
+    font-family: var(--font-action);
     color: #fff;
     text-transform: uppercase; /*Estilizar letra maiuscula o u minuscula*/
-    letter-spacing: .1rem;
+    letter-spacing: 0.2rem;
     background: #232526;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to left, #414345, #232526);  
     background: linear-gradient(to left, #414345, #232526);
-    padding: 1rem 3rem;
+    padding: 0.7rem 1.5rem;
     border: none; /*nenhuma borda*/
     border-radius: 5px; /*Bordas do botão*/
     cursor: pointer; 
@@ -83,11 +169,11 @@ header {
     animation: moveBanner 1s 0.9s forwards;
 }
 
-.banner button:hover{ /*Evento do mause no botão*/
+.banner button:hover{ /*Evento do mause no botão*/  /*Averiguar a situação, pois não está funcionando*/
     opacity: 0.6;
 }
 
-@keyframes moveBanner {
+@keyframes moveBanner { /*animação da entrada do banner*/
     0%{
         transform: translateY(10rem) rotateY(-30deg);
     }
@@ -95,6 +181,73 @@ header {
         transform: translateY(0) rotateY(0);
         opacity: 1;
     }
+}
+
+/* -------------------------------- MENU ----------------------------------- */
+
+.sidebar {
+    width: 15rem;
+    height: 100vh;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: -15rem;
+    transition: all 1s;
+}
+
+.show-menu .sidebar { /* evento de click no sidebar*/
+    right: 0;
+}
+
+.menu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); /*centraliza*/
+}
+
+.menu-item{
+    text-align: center; /*alinhou o texto do sidebar*/
+    margin-bottom: 2.5rem;
+ 
+}
+
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 1.6rem;
+    color: #000;
+    transition: color 1s;
+
+}
+
+.menu-link:hover {
+    color: #d3d3d3;
+}
+
+.social-media{ /*itens das redes sociais*/
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social-media i{ /*itens das redes sociais*/
+    background-color: #2f363d;
+    color:#fff;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 1s;
+
+}
+
+.social-media i:hover { /*itens das redes sociais*/
+    background-color: #000;
 }
 
 
