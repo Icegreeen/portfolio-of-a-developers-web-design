@@ -2,27 +2,12 @@
 <h1 align="center"> Titulo </h1>
 
 ## Descrição do Projeto
-<p align="justify">Web portfolio of a developer & web designer desenvolvido utalizando .</p>
+<p align="justify">Web developer & web designer portfolio, developed using only HTML5, CSS3 and JavaScript.</p>
+https://img.shields.io/static/v1?label=<HTML-CSS-JavaScript>&message=<Language>&color=<blue>
 
+<img src="https://img.shields.io/static/v1?label=HTML-CSS-JavaScript&message=Language&color=blue&style=for-the-badge&logo=web"/>
 
+# Pendência
 
+I need to make all sections responsive.
 
-
-# Portifolio
-
-Portifolio do desenvolvedor
-
-# Tarefas
-
-Preciso fazer a responsividade de todas as sections
-
-O controle de tarefas desse projeto será realizado no Github.
-
-
-##  icones
-
-:package: nova funcionalidade
-
-:up:atualização
-
-:beatle:correção de bugs
