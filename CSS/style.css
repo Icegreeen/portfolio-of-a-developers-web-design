@@ -14,7 +14,7 @@
                 margin: 0;
                 padding: 0;
                 list-style: none;
-                /*isso aqui retira as bolinhas list*/
+                /*retira as bolinhas list*/
                 text-decoration: none;
                 /*tirar o sumblinhado dos links*/
             }
@@ -425,7 +425,7 @@
                 width: 100%;
                 height: 100%;
                 border-radius: .5rem;
-                /*Borda*/
+     
                 opacity: .8;
                 transition: opacity .6s;
             }
@@ -477,6 +477,7 @@
                 color: #eee;
                 border-radius: .5rem;
                 border: none;
+                cursor: pointer;
                 box-shadow: 0 .1rem .8rem rgba(0, 0, 0, .4);
             }
             
@@ -594,7 +595,7 @@
             .sessao-orcamento {
                 width: 100%;
                 height: 100vh;
-                background: url("/img/5.jpg");
+                background: url("/img/computer.jpg");
                 background-position: 45% 50%;
                 background-size: cover;
                 display: flex;

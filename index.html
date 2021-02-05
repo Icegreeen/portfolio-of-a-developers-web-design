@@ -199,7 +199,7 @@
                     <div class="group-layout">
                         <div>
                             <input type="radio" name="layout"  id="layout-sim">
-                            <label for="layout-sim">Preciso de umm layout</label>
+                            <label for="layout-sim">Preciso de um layout</label>
                         </div>
                         <div>
                             <input type="radio" name="layout" id="layout-nao">
@@ -207,7 +207,8 @@
                         </div>
                     </div>
                     <label for="prazo">Prazo</label>
-                    <input type="range" name="prazo" id="prazo">
+                    <input type="range" name="prazo" id="prazo" min="1" max="10">
+                    <label id="preco">R$ 0,00</label>
                     <button class="btn btn-orcamento" type="submit">Enviar</button>
                 </form>
             </div>
